@@ -1,1 +1,1 @@
-# maxipago for Laravel
+# maxipago
