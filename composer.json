@@ -6,11 +6,12 @@
 	"license" : "MIT",
 	"keywords" : [
 		"maxipago",
-		"php"
+		"php",
+		"laravel"
 	],
 	"authors" : [{
-			"name" : "Israel Tortato",
-			"email" : "israelf.tortato@gmail.com"
+			"name" : "Kristian Tenfen",
+			"email" : "kristian.tenfen@gmail.com"
 		}
 	],
 	"require" : {
@@ -22,12 +23,14 @@
 		"ext-simplexml" : "*",
 		"ext-xmlwriter" : "*"
 	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
 	"require-dev" : {
 		"phpunit/phpunit" : "3.7.*"
 	},
 	"autoload" : {
 		"psr-4" : {
-			"Tortato\\Maxipago\\" : "src"
+			"Tenfen\\Maxipago\\" : "src"
 		}
 	}
 }
