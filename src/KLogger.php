@@ -1,5 +1,5 @@
 <?php
-namespace Tortato\Maxipago;
+namespace Tenfen\Maxipago;
 
 /**
  * Finally, a light, permissions-checking logging class.

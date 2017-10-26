@@ -1,5 +1,5 @@
 <?php
-namespace Tortato\Maxipago;
+namespace Tenfen\Maxipago;
 
 class ResponseBase extends ServiceBase {
 

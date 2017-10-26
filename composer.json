@@ -23,8 +23,6 @@
 		"ext-simplexml" : "*",
 		"ext-xmlwriter" : "*"
 	},
-	"minimum-stability": "dev",
-	"prefer-stable": true,
 	"require-dev" : {
 		"phpunit/phpunit" : "3.7.*"
 	},

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tortato\Maxipago;
+namespace Tenfen\Maxipago;
 
 class ServiceBase {
 
