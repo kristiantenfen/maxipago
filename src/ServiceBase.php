@@ -19,7 +19,7 @@ class ServiceBase {
                 $this->credentials["merchantKey"] = $key;
                 if (is_object(RequestBase::$logger)) { RequestBase::$logger->logNotice('Setting credentials "'.$mid.'" and "'.RequestBase::clearForLog($key).'"'); }
             }
-            else { throw new InvalidArgumentException('[maxiPago Class error] Invalid credentials.', 401); }
+            else { throw new \InvalidArgumentException('[maxiPago Class error] Invalid credentials.', 401); }
         }
         catch (Exception $e) {
             if (is_object(RequestBase::$logger)) { RequestBase::$logger->logFatal($e->getMessage()." in ".$e->getFile()." on line ".$e->getLine()); }

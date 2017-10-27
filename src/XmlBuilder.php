@@ -37,7 +37,7 @@ class XmlBuilder extends RequestBase {
             case "sale":
             case "boleto":
                 $this->xml->order->$type->addChild("billing");
-                if (($type == "boleto") && (strlen($this->bname) == 0)) { throw new InvalidArgumentException("[maxiPago Class] Billing name is mandatory for Boleto transactions."); }
+                if (($type == "boleto") && (strlen($this->bname) == 0)) { throw new \InvalidArgumentException("[maxiPago Class] Billing name is mandatory for Boleto transactions."); }
                 if (strlen($this->bname) > 0) { $this->xml->order->$type->billing->addChild("name", $this->bname); }
                 if (strlen($this->baddress) > 0) { $this->xml->order->$type->billing->addChild("address", $this->baddress); }
                 if (strlen($this->baddress2) > 0) { $this->xml->order->$type->billing->addChild("address2", $this->baddress2); }
@@ -107,7 +107,7 @@ class XmlBuilder extends RequestBase {
             $this->xml->order->$type->transactionDetail->payType->onFile->addChild("token", $this->token);
             $this->xml->order->$type->transactionDetail->payType->onFile->addChild("customerId", $this->customerId);
         }
-        else { throw new InvalidArgumentException('[maxiPago Class] Invalid payment data for Credit Card transaction.'); }
+        else { throw new \InvalidArgumentException('[maxiPago Class] Invalid payment data for Credit Card transaction.'); }
         $this->setPayment();
         if (($this->saveOnFile) && (!$this->token) && ($this->type != "recurringPayment")) { $this->setSaveOnFile(); }
     }
@@ -147,7 +147,7 @@ class XmlBuilder extends RequestBase {
             if ($this->numberOfInstallments > 1) {
                 $this->xml->order->$type->payment->addChild("creditInstallment");
                 $this->xml->order->$type->payment->creditInstallment->addChild("numberOfInstallments", $this->numberOfInstallments);
-                if ((strlen($this->chargeInterest) > 0) && (!in_array(strtoupper($this->chargeInterest), array("Y", "N")))) { throw new InvalidArgumentException("[maxiPago Class] Field 'chargeInterest' accepts only Y or N."); }
+                if ((strlen($this->chargeInterest) > 0) && (!in_array(strtoupper($this->chargeInterest), array("Y", "N")))) { throw new \InvalidArgumentException("[maxiPago Class] Field 'chargeInterest' accepts only Y or N."); }
                 elseif (strlen($this->chargeInterest) == 0) { $this->chargeInterest = "N"; }
                 $this->xml->order->$type->payment->creditInstallment->addChild("chargeInterest", strtoupper($this->chargeInterest));
             }
@@ -234,7 +234,7 @@ class XmlBuilder extends RequestBase {
             $this->xml->request->filterOptions->addChild("pageToken", $this->pageToken);
             $this->xml->request->filterOptions->addChild("pageNumber", $this->pageNumber);
         }
-        else { throw new InvalidArgumentException("[maxiPago Class] Field 'filterOptions' is invalid. Please see documention for help."); }
+        else { throw new \InvalidArgumentException("[maxiPago Class] Field 'filterOptions' is invalid. Please see documention for help."); }
     }
 
 }
