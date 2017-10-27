@@ -1,13 +1,12 @@
 {
 	"name" : "tenfen/maxipago",
 	"type" : "library",
-	"version" : "1.0.3",
-	"description" : "Api Maxipago Laravel",
+	"version" : "1.0.4",
+	"description" : "Api Maxipago PHP",
 	"license" : "MIT",
 	"keywords" : [
 		"maxipago",
-		"php",
-		"laravel"
+		"php"
 	],
 	"authors" : [{
 			"name" : "Kristian Tenfen",
@@ -15,7 +14,7 @@
 		}
 	],
 	"require" : {
-		"php" : ">=5.2.1",
+		"php" : ">=7.0.0",
 		"ext-curl" : "*",
 		"ext-dom" : "*",
 		"ext-hash" : "*",

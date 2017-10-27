@@ -11,7 +11,7 @@ class XmlBuilder extends RequestBase {
     }
 
     protected function setRequest() {
-        $this->xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?>'.$this->tag);
+        $this->xml = new \SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?>'.$this->tag);
         if ($this->tag == "<transaction-request></transaction-request>") { $this->xml->addChild("version", $this->version); }
         $this->xml->addChild("verification");
         $this->xml->verification->addChild("merchantId", $this->merchantId);

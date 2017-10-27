@@ -29,7 +29,7 @@ class Request extends XmlBuilder {
     }
 
     private function parseXml($array = array(),$c = 0) {
-        $xmlResponse = new SimpleXMLElement($this->xmlResponse);
+        $xmlResponse = new \SimpleXMLElement($this->xmlResponse);
         if (is_object(RequestBase::$logger)) {
             self::$logger->logInfo('XML Response received');
             self::$logger->logDebug(' ', $xmlResponse->asXML());
