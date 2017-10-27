@@ -38,7 +38,7 @@ class ServiceBase {
             	$this->host = 'https://testapi.maxipago.net';
             }
             elseif (strtoupper($param) == 'LIVE') { $this->host = 'https://api.maxipago.net'; }
-            else { throw new BadMethodCallException('[maxiPago Class error] Invalid environment. '.__METHOD__.' accepts either "TEST" or "LIVE"', 400); }
+            else { throw new \BadMethodCallException('[maxiPago Class error] Invalid environment. '.__METHOD__.' accepts either "TEST" or "LIVE"', 400); }
             if (is_object(RequestBase::$logger)) { RequestBase::$logger->logNotice('Setting enviroment to "'.$param.'"'); }
         }
         catch (Exception $e) {

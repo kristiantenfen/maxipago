@@ -13,7 +13,7 @@ class RequestBase {
 
     public function setEndpoint($param) {
         try {
-            if (!$param) { throw new BadMethodCallException('[maxiPago Class] INTERNAL ERROR on '.__METHOD__.' method: no Endpoint defined'); }
+            if (!$param) { throw new \BadMethodCallException('[maxiPago Class] INTERNAL ERROR on '.__METHOD__.' method: no Endpoint defined'); }
             $this->endpoint = $param;
             if (is_object(RequestBase::$logger)) { RequestBase::$logger->logDebug('Setting endpoint to "'.$param.'"'); }
         }
@@ -25,7 +25,7 @@ class RequestBase {
 
     public function setTransactionType($param) {
         try {
-            if (!$param) { throw new BadMethodCallException('[maxiPago Class] INTERNAL ERROR on '.__METHOD__.' method: no Transaction Type defined'); }
+            if (!$param) { throw new \BadMethodCallException('[maxiPago Class] INTERNAL ERROR on '.__METHOD__.' method: no Transaction Type defined'); }
             $this->type = $param;
         }
         catch (Exception $e) {
@@ -36,7 +36,7 @@ class RequestBase {
 
     public function setVars($array) {
         try {
-            if (!$array) { throw new BadMethodCallException('[maxiPago Class] INTERNAL ERROR on '.__METHOD__.' method: no array to format.', 400); }
+            if (!$array) { throw new \BadMethodCallException('[maxiPago Class] INTERNAL ERROR on '.__METHOD__.' method: no array to format.', 400); }
             foreach($array as $k => $v) { $this->$k = $v; }
             if (is_object(self::$logger)) {
                 if (self::$loggerSev != 'DEBUG') { $array = self::clearForLog($array); }
@@ -162,7 +162,7 @@ class RequestBase {
                     $this->setRapiRequest();
                     break;
                 default:
-                    throw new BadMethodCallException('[maxiPago Class] Transaction type '.$type.' is invalid. Transaction was not sent.');
+                    throw new \BadMethodCallException('[maxiPago Class] Transaction type '.$type.' is invalid. Transaction was not sent.');
                     break;
             }
             return $this->sendXml();
