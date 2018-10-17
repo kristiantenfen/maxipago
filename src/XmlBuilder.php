@@ -86,6 +86,9 @@ class XmlBuilder extends RequestBase
                 if (strlen($this->billingCountry) > 0) {
                     $this->xml->order->$type->billing->addChild('country', $this->billingCountry);
                 }
+                if (strlen($this->billingPhone) > 0) {
+                    $this->xml->order->$type->billing->addChild('phone', $this->billingPhone);
+                }
                 if (strlen($this->billingEmail) > 0) {
                     $this->xml->order->$type->billing->addChild('email', $this->billingEmail);
                 }
