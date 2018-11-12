@@ -365,6 +365,7 @@ class XmlBuilder extends RequestBase
     {
         $type = $this->type;
         $this->xml->order->$type->addChild('itemList');
+        $this->xml->order->$type->itemList->addAttribute('itemCount', count($this->itemProducts));
 
         foreach ($this->itemProducts as $key => $itemProduct) {
             $this->xml->order->$type->itemList->addChild('item');
