@@ -238,7 +238,7 @@ class RequestBase
     protected $bphone;
     protected $bpostalcode;
     protected $bstate;
-    protected $comments;    
+    protected $comments;
     protected $creditCardNumber;
     protected $cvvInd;
     protected $endDate;
@@ -246,7 +246,7 @@ class RequestBase
     protected $expirationDate;
     protected $expirationMonth;
     protected $expirationYear;
-    protected $instructions;            
+    protected $instructions;
     protected $onFileComment;
     protected $onFileEndDate;
     protected $onFileMaxChargeAmount;
@@ -265,23 +265,22 @@ class RequestBase
     protected $saveOnFile;
     protected $scity;
     protected $scountry;
-    protected $semail;    
+    protected $semail;
     protected $sname;
     protected $softDescriptor;
     protected $sphone;
     protected $spostalcode;
     protected $sstate;
-    protected $startTime;    
+    protected $startTime;
     protected $token;
     protected $transactionID;
     protected $transactionId;
-    protected $xmlResponse;    
+    protected $xmlResponse;
     protected $authenticated;
     protected $authenticationURL;
     protected $processorTransactionID;
     protected $processorReferenceNumber;
-    
-    
+
     //Recurring
     protected $action;
     protected $startDate;
@@ -292,11 +291,11 @@ class RequestBase
     protected $lastAmount;
     protected $lastDate;
     protected $failureThreshold;
-        
+
     //Authentication Data
     protected $merchantId;
     protected $merchantKey;
-    
+
     //Order Data
     protected $processorID;
     protected $referenceNum;
@@ -305,12 +304,12 @@ class RequestBase
     protected $ipAddress;
     protected $invoiceNumber;
     protected $userAgent;
-    
+
     //Authentication Data
     protected $mpiProcessorID;
     protected $onFailure;
-    
-    //Billing Data 
+
+    //Billing Data
     protected $billingId;
     protected $billingName;
     protected $billingAddress;
@@ -334,7 +333,7 @@ class RequestBase
     protected $billingPhoneExtension;
     protected $billingDocumentType;
     protected $billingDocumentValue;
-    
+
     //Shipping Data
     protected $shippingId;
     protected $shippingName;
@@ -358,20 +357,20 @@ class RequestBase
     protected $shippingPhoneExtension;
     protected $shippingDocumentType;
     protected $shippingDocumentValue;
-    
+
     //Fraud Data
     protected $fraudProcessorID;
     protected $captureOnLowRisk;
     protected $voidOnHighRisk;
     protected $websiteId;
     protected $fraudToken;
-    
+
     //CreditCard Data
     protected $number;
     protected $expMonth;
     protected $expYear;
     protected $cvvNumber;
-    
+
     //Payment Data
     protected $currencyCode;
     protected $chargeTotal;
@@ -379,16 +378,17 @@ class RequestBase
     protected $chargeInterest;
     protected $numberOfInstallments;
     protected $shippingTotal;
-    
+
     //Itens Data
+    protected $itemProducts;
     protected $itemIndex;
     protected $itemProductCode;
     protected $itemDescription;
     protected $itemQuantity;
     protected $itemTotalAmount;
     protected $itemUnitCost;
-    
-    //Create, Update and Delete Customers 
+
+    //Create, Update and Delete Customers
     protected $firstName;
     protected $lastName;
     protected $address1;

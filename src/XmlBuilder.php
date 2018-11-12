@@ -365,24 +365,27 @@ class XmlBuilder extends RequestBase
     {
         $type = $this->type;
         $this->xml->order->$type->addChild('itemList');
-        $this->xml->order->$type->itemList->addChild('item');
-        if (strlen($this->itemIndex) > 0) {
-            $this->xml->order->$type->itemList->item->addChild('itemIndex', $this->itemIndex);
-        }
-        if (strlen($this->itemProductCode) > 0) {
-            $this->xml->order->$type->itemList->item->addChild('itemProductCode', $this->itemProductCode);
-        }
-        if (strlen($this->itemDescription) > 0) {
-            $this->xml->order->$type->itemList->item->addChild('itemDescription', $this->itemDescription);
-        }
-        if (strlen($this->itemQuantity) > 0) {
-            $this->xml->order->$type->itemList->item->addChild('itemQuantity', $this->itemQuantity);
-        }
-        if (strlen($this->itemTotalAmount) > 0) {
-            $this->xml->order->$type->itemList->item->addChild('itemTotalAmount', $this->itemTotalAmount);
-        }
-        if (strlen($this->itemUnitCost) > 0) {
-            $this->xml->order->$type->itemList->item->addChild('itemUnitCost', $this->itemUnitCost);
+        $this->xml->order->$type->itemList->addAttribute('itemCount', count($this->itemProducts));
+
+        foreach ($this->itemProducts as $key => $itemProduct) {
+            $this->xml->order->$type->itemList->addChild('item');
+            $this->xml->order->$type->itemList->item[$key]->addChild('itemIndex', $key + 1);
+
+            if (strlen($itemProduct['itemProductCode']) > 0) {
+                $this->xml->order->$type->itemList->item[$key]->addChild('itemProductCode', $itemProduct['itemProductCode']);
+            }
+            if (strlen($itemProduct['itemDescription']) > 0) {
+                $this->xml->order->$type->itemList->item[$key]->addChild('itemDescription', $itemProduct['itemDescription']);
+            }
+            if (strlen($itemProduct['itemQuantity']) > 0) {
+                $this->xml->order->$type->itemList->item[$key]->addChild('itemQuantity', $itemProduct['itemQuantity']);
+            }
+            if (strlen($itemProduct['itemTotalAmount']) > 0) {
+                $this->xml->order->$type->itemList->item[$key]->addChild('itemTotalAmount', $itemProduct['itemTotalAmount']);
+            }
+            if (strlen($itemProduct['itemUnitCost']) > 0) {
+                $this->xml->order->$type->itemList->item[$key]->addChild('itemUnitCost', $itemProduct['itemUnitCost']);
+            }
         }
     }
 
@@ -433,6 +436,9 @@ class XmlBuilder extends RequestBase
         if (($this->saveOnFile) && (!$this->token) && ($this->type != 'recurringPayment')) {
             $this->setSaveOnFile();
         }
+
+        $this->setFraudDetails();
+        $this->setItens();
     }
 
     protected function setBoleto()
@@ -716,7 +722,7 @@ class XmlBuilder extends RequestBase
             $this->xml->request->filterOptions->addChild('pageToken', $this->pageToken);
             $this->xml->request->filterOptions->addChild('pageNumber', $this->pageNumber);
         } else {
-            throw new InvalidArgumentException("[maxiPago Class] Field 'filterOptions' is invalid. Please see documention for help.");
+            throw new \InvalidArgumentException("[maxiPago Class] Field 'filterOptions' is invalid. Please see documention for help.");
         }
     }
 }
