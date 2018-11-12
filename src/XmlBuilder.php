@@ -436,6 +436,7 @@ class XmlBuilder extends RequestBase
             $this->setSaveOnFile();
         }
 
+        $this->setFraudDetails();
         $this->setItens();
     }
 
